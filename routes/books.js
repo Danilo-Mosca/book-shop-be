@@ -11,10 +11,10 @@ import {
 //Rotte
 
 // Index - Read all
-router.get("/", index);   // /books
+router.get("/", index);
 
 // Show - Read one -
-router.get("/:id", show); // /books/:id
+router.get("/:id", show);
 
 //Store - Create
 router.post("/", store);

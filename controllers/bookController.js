@@ -2,13 +2,11 @@ import books from "../models/books.js";
 import CustomError from "../classes/CustomError.js";
 
 function index(req, res) {
-  res.json(books);
-
   const response = {
     info: {
-      totalCount: books.length
+      totalCount: books.length,
     },
-    results: [...books]
+    results: [...books],
   };
   res.json(response);
 }
@@ -45,15 +43,14 @@ function store(req, res) {
   console.log(req.body);
   // // new data is in req.body
   const newBook = { id: newId, ...req.body };
-
   books.push(newBook);
   // res.status(201).json(newItem);
-  res.json({ succces: true, item: newBook });
+  res.json({ success: true, item: newBook });
 }
 
 function update(req, res) {
   const id = parseInt(req.params.id);
-  const item = books.find((book) => book.id === id);
+  const item = books.find((item) => item.id === id);
   if (!item) {
     throw new CustomError("L'elemento non esiste", 404);
   }
