@@ -7,5 +7,4 @@ function errorsHandler(err, req, res, next) {
     error: err.message,
   });
 }
-
-module.exports = errorsHandler;
+export default errorsHandler;

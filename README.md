@@ -32,6 +32,11 @@ npm install express
 
 ```
 
+```bash
+    # per cors
+    npm install cors
+```
+
 ```javascript
 // import express in server js
 const express = require("express");
@@ -43,11 +48,21 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 
+// middleware per il CORS
+const cors = require("cors"); 👈
+app.use(cors({ 
+  origin: 'localhost: http://localhost:5173' 👈
+})); 
+
+
 //Other imports
 
 //define static assets path 
 // create public directory inside root directory mkdir public
 app.use(express.static("public"));
+
+// register body-parser for "application/json"
+app.use(express.json()); 👈
 
 
 //add root route

@@ -1,20 +1,20 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const {
+import {
   index,
   show,
   store,
   update,
   destroy,
-} = require("../controllers/exampleController");
+} from "../controllers/bookController.js";
 //Rotte
 
 // Index - Read all
-router.get("/", index);
+router.get("/", index);   // /books
 
 // Show - Read one -
-router.get("/:id", show);
+router.get("/:id", show); // /books/:id
 
 //Store - Create
 router.post("/", store);
@@ -31,4 +31,4 @@ router.put("/:id", update);
 router.delete("/:id", destroy);
 
 //export router
-module.exports = router;
+export default router;
